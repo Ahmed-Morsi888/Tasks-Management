@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { Admin } from './admin/admin';
-import { User } from './user/user';
 import { authGuardGuard } from './guards/auth-guard-guard';
 import { Dashboard } from './features/dashboard/dashboard';
 import { Tasks } from './features/tasks/tasks';

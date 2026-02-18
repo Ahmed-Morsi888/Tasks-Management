@@ -1,5 +1,5 @@
 <section class=" p-1 flex flex-col gap-2 relative  bg-gray-100 text-black max-h-screen transition-all duration-300 ease-in-out
-" [ngClass]="{'w-60 rounded-l-3xl': !navResponse(), 'w-16  items-center  rounded-2xl': navResponse()}">
+" [ngClass]="{'w-60 rounded-l-3xl': !navResponse(), 'w-18  items-center   rounded-2xl': navResponse()}">
     <div class=" flex items-center justify-between border-b-2 border-gray-300 transition-all duration-800 ease-in-out  py-1">
         @if(!navResponse()){
             <h1  class=" flex text-2xl font-bold p-4 text-blue-600 " >Pro <span [ngClass]=" {'hidden': navResponse(), 'block': !navResponse()}">Tasks</span></h1>
@@ -13,21 +13,29 @@
         }
     </div>
     
-    <div class="flex flex-col justify-between h-screen ">
+    <div class="flex flex-col  justify-between h-screen ">
         <div>
             @for (route of routes; track $index) {
-                <div class="px-4">   
+                <div class="px-4 mt-2">   
                     @if(!navResponse()){
                         <a  class="flex items-center gap-2 px-3 py-4 rounded-2xl w-full font-medium text-md"   [routerLinkActiveOptions]="{ exact: true }"
                         routerLinkActive="bg-blue-600 text-white font-bold" [routerLink]="route.url"><i [ngClass]="route.icon"></i>  <span >{{route.name}}</span></a>
                     }@else {
-                        <a  class="flex items-center justify-center gap-2 p-3 rounded-xl w-full"   [routerLinkActiveOptions]="{ exact: true }"
+                        <a  class="flex items-center justify-center gap-2  p-3 rounded-xl w-full"   [routerLinkActiveOptions]="{ exact: true }"
                         routerLinkActive="bg-blue-600 text-white" [routerLink]="route.url"><i class="text-lg" [ngClass]="route.icon"></i></a>
                     }
                 </div>
             }
         </div>
-        <div   class="flex gap-1 p-4 transition-all duration-400 text-red-600 font-bold cursor-pointer hover:text-red-700 " ><span [ngClass]=" {'hidden': navResponse(), 'block': !navResponse()}" class="">logout</span><span  [ngClass]=" {'hidden': navResponse(), 'block': !navResponse()}"> Account</span>  </div>
+        <div   class="  flex gap-1 p-4 transition-all duration-400 text-red-600 font-bold cursor-pointer hover:text-red-700 " >
+        @if(!navResponse()){
+             <span class="">logout</span>
+            <span [ngClass]=" {'hidden': navResponse(), 'block': !navResponse()}" class="">logout</span>
+            <span  [ngClass]=" {'hidden': navResponse(), 'block': !navResponse()}"> Account</span> 
+        }@else {
+            <i class=" w-full pi pi-sign-out text-lg text-center" ></i>
+        }
+        </div>
     </div>
         
 </section>

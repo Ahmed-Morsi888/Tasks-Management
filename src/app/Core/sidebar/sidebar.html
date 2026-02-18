@@ -1,0 +1,9 @@
+<section class="flex flex-col gap-8 p-4  mt-8">
+    @for (route of routes; track $index) {
+        <div class="flex items-center gap-2 ">
+            <i [ngClass]="route.icon "></i>
+            <a [routerLink]="route.url">{{route.name}}</a>
+        </div>
+    }
+    
+</section>

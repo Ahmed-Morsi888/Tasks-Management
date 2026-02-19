@@ -1,10 +1,27 @@
-<nav>
- <div class=" flex gap-4 justify-center">
-    <a class=""  routerLink="/user">User</a>
-    @if(islogged){
-       <a  class="" routerLink="/admin">Admin</a>
-    }
- </div>
+<nav class="flex justify-between items-center px-4 py-1 bg-gray-100 rounded-2xl" >
+
+   <div class="flex flex-col ">
+
+   <h2 class="text-xl font-medium">welcom back Ahmed </h2>
+      <p class="text-gray-400 text-xs">Here is what is happening with your team today  </p>
+   </div>
+
+   <div class="flex items-center  gap-2 ">
+<div class="flex border-2 border-gray-200 shadow-sm rounded-lg items-center justify-between p-2 bg-gray-50 ">
+   
+      <input class="focus:outline-0" type="text" placeholder="search..">
+      <i class="pi pi-search cursor-pointer"></i>
+   </div>
+      <div class="  relative p-4">
+
+         <i class=" pi pi-bell text-lg cursor-pointer hover:text-gray-500"></i>
+         <span class="absolute top-2.5 right-2 bg-blue-600 px-1 w-4 h-4 flex justify-center items-center py-.5 rounded-xl  text-xs font-bold ">2</span>
+      </div>
+      <div class="">
+         <img class="rounded-full w-10 h-10 " src="/User.jpg" alt="user profile">
+      </div>
+
+   </div>
 
 
 </nav>

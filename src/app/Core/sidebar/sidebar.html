@@ -27,12 +27,16 @@
                 </div>
             }
         </div>
-        <div   class="  flex gap-1 p-4 transition-all duration-400 text-red-600 font-bold cursor-pointer hover:text-red-700 " >
+        <div   class="  flex p-4 transition-all duration-400 text-red-600 font-bold cursor-pointer hover:text-red-700 " >
         @if(!navResponse()){
-             <span class="">logout</span>
-            <span [ngClass]=" {'hidden': navResponse(), 'block': !navResponse()}" class="">logout</span>
-            <span  [ngClass]=" {'hidden': navResponse(), 'block': !navResponse()}"> Account</span> 
-        }@else {
+            <div class="flex items-center  gap-2">
+
+                <i class=" pi pi-sign-out text-md text-center" ></i>
+
+                <span [ngClass]=" {'hidden': navResponse(), 'block': !navResponse()}" class="">Logout</span>
+                
+            </div>
+            }@else {
             <i class=" w-full pi pi-sign-out text-lg text-center" ></i>
         }
         </div>

@@ -1,17 +1,23 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
-import { disabled } from '@angular/forms/signals';
-import { Icons } from '../../../shared/icons/icons';
+import { Heading } from '../heading/heading';
 
 @Component({
   selector: 'app-assigned-tasks',
-  imports: [ReactiveFormsModule, Icons],
+  imports: [ReactiveFormsModule, Heading],
   templateUrl: './assigned-tasks.html',
-  styleUrl: './assigned-tasks.css',
 })
 export class AssignedTasks {
   tasksStatus = new FormControl('All');
-  data = input<{ project: string; task: string; status: string; Due: string; workers: number }[]>();
+  data = input<
+    {
+      project: string;
+      task: { number: string; name: string };
+      status: string;
+      Due: string;
+      workers: number;
+    }[]
+  >();
   optionValue = signal<string | null>('All');
   statusOptions = [
     { label: 'All', value: 'All' },
@@ -30,8 +36,8 @@ export class AssignedTasks {
     const data = this.data() ?? [];
     const value = this.optionValue();
 
-    if (value === 'All') return data;
+    if (value === 'All') return data.slice(0, 3);
 
-    return data.filter((item) => item.status === value);
+    return data.filter((item) => item.status === value).slice(0, 3);
   });
 }

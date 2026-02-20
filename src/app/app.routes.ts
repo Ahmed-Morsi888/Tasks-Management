@@ -10,11 +10,21 @@ import { Notfound } from './features/notfound/notfound';
 
 export const routes: Routes = [
   { path: '', component: Dashboard },
-  { path: 'tasks', component: Tasks },
-  { path: 'emails', component: Emails },
-  { path: 'notification', component: Notifications },
-  { path: 'notes', component: Notes },
-  { path: 'calender', component: Calender },
+  { path: 'tasks', loadComponent: () => import(`./features/tasks/tasks`).then((c) => c.Tasks) },
+  { path: 'emails', loadComponent: () => import(`./features/emails/emails`).then((c) => c.Emails) },
+  {
+    path: 'notification',
+    loadComponent: () =>
+      import(`./features/notifications/notifications`).then((c) => c.Notifications),
+  },
+  { path: 'notes', loadComponent: () => import(`./features/notes/notes`).then((c) => c.Notes) },
+  {
+    path: 'calender',
+    loadComponent: () => import(`./features/calender/calender`).then((c) => c.Calender),
+  },
 
-  { path: '**', component: Notfound },
+  {
+    path: '**',
+    loadComponent: () => import(`./features/notfound/notfound`).then((c) => c.Notfound),
+  },
 ];

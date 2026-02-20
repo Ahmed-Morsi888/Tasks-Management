@@ -1,7 +1,7 @@
-<main class="mt-4 bg-gray-200 p-2 rounded-lg flex flex-col gap-4">
+<main class="mt-4 bg-gray-200 p-2 rounded-lg flex flex-col gap-4 shadow-md">
 <section class="flex justify-between items-center p-3">
 <div>
-<h2 class="text-2xl font-bold "> Tasks</h2>
+    <app-heading [head]="'Tasks'"></app-heading>
 </div>
 <div>
   <select [formControl]="tasksStatus"   class=" cursor-pointer bg-gray-100 px-2 py-1 rounded-md transition-all duration-200 outline-0" name="tasks" id="tasks">
@@ -11,15 +11,15 @@
   </select>
 </div>
 </section>
-<hr class="border-dashed border-gray-400  mt-4">
+<hr class="border-dashed border-gray-400  ">
 <section>
 <div class="flex flex-col gap-3 ">
     @for (item of filteredData(); track $index) {
 
-        <div class="cursor-pointer hover:bg-blue-400 hover:text-white flex justify-between items-center px-2  bg-gray-100 rounded-lg">
+        <div class="cursor-pointer hover:bg-gray-300  flex justify-between items-center px-2  bg-gray-100 rounded-lg">
             <div class="flex flex-col gap-2  p-3  rounded-lg">
-             <h3 class=" text-shadow-md font-medium text-lg">{{item.task}}</h3>
-             <p class=" flex text-shadow-md font-medium gap-3 text-gray-800 ">{{item.project}} <span class="text-gray-500 "> {{item.Due}}</span></p>
+             <h3 class="  font-medium text-lg ">{{item.task.name}}</h3>
+             <p class=" flex  font-medium gap-3 text-gray-800 ">{{item.project}} <span class="text-gray-500 "> {{item.Due}}</span></p>
             </div>
             <div>
  <i class="pi pi-eye cursor-pointer text-gray-500 hover:text-gray-700 "></i>
@@ -30,6 +30,8 @@
 
 
 </section>
-<div><button class="bg-blue-600 hover:bg-blue-300 text-white px-4 py-2 rounded-md cursor-pointer ">See All</button></div>
+<div>
+    <button class=  "w-full bg-blue-600 hover:bg-blue-300 text-white px-4 py-2 rounded-md cursor-pointer ">See All</button>
+</div>
  
 </main>

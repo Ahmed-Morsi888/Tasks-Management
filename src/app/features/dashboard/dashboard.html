@@ -1,1 +1,7 @@
-<p>dashboard works!</p>
+<main>
+<app-card [data]="data()"></app-card>
+<section class="flex gap-2"> 
+    <div class="w-1/2"><app-assigned-tasks [data]="_projectTasksData()"></app-assigned-tasks></div>
+    <div class="w-1/2"> </div>
+</section>
+</main>

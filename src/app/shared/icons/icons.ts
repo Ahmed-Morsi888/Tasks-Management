@@ -16,6 +16,8 @@ export class Icons {
     { name: 'Notification', icon: 'pi pi-bell' },
     { name: 'Notes', icon: 'pi pi-file-o' },
     { name: 'Calender', icon: 'pi pi-calendar' },
+    { name: 'Eye', icon: 'pi pi-eye' },
+    { name: 'eye-slash', icon: 'pi pi-eye-slash' },
   ];
 
   get selectedIcon(): string {
